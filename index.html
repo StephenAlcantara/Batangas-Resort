@@ -53,6 +53,16 @@
         .cal-day-selected-end { background-color: #0284c7 !important; color: white !important; border-color: #0284c7 !important; border-radius: 0 0.5rem 0.5rem 0; }
         .cal-day-selected-range { background-color: #e0f2fe !important; color: #0369a1 !important; border-radius: 0; }
 
+        /* Payment Selection Elements */
+        .payment-method-btn {
+            border: 2px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .payment-method-btn.active {
+            border-color: #0284c7;
+            background-color: #f0f9ff;
+        }
+
         /* Mobile specific adjustments */
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: #f1f5f9; }
@@ -61,6 +71,7 @@
 </head>
 <body class="text-slate-700 font-sans min-h-screen antialiased bg-slate-50">
 
+    <!-- GLOBAL NAVBAR -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-sky-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between py-3 sm:h-20 space-y-3 sm:space-y-0">
@@ -90,7 +101,11 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         
+        <!-- ========================================== -->
+        <!-- 1. GUEST PORTAL VIEW                       -->
+        <!-- ========================================== -->
         <section id="view-customer" class="fade-in block space-y-6">
+            <!-- Search & Filters Container -->
             <div class="bg-white p-4 sm:p-6 rounded-2xl shadow-sm border border-sky-100 space-y-4">
                 <div>
                     <h1 class="text-xl sm:text-2xl font-black text-slate-900">Find Your Batangas Stay</h1>
@@ -125,20 +140,29 @@
                 </div>
             </div>
 
+            <!-- Total Results Counter -->
             <div class="flex items-center justify-between border-b border-slate-200 pb-2">
                 <span id="results-counter" class="text-xs font-bold text-slate-500 uppercase tracking-wider">Available Listings</span>
             </div>
 
+            <!-- Resort Portfolio Grid -->
             <div id="resort-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
-                </div>
+                <!-- Dynamically Rendered -->
+            </div>
 
+            <!-- Pagination Bar -->
             <div id="pagination-controls" class="flex justify-center items-center space-x-2 pt-2">
-                </div>
+                <!-- Populated dynamically -->
+            </div>
         </section>
 
+        <!-- ========================================== -->
+        <!-- 2. OWNER HUB DASHBOARD                     -->
+        <!-- ========================================== -->
         <section id="view-owner" class="fade-in hidden space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
                 
+                <!-- OWNER SIDEBAR NAVIGATION -->
                 <div class="bg-white rounded-2xl border border-sky-100 p-4 space-y-4 shadow-sm">
                     <div class="flex items-center justify-between">
                         <div>
@@ -151,15 +175,18 @@
                     </div>
                     
                     <div class="flex flex-row lg:flex-col gap-1.5 overflow-x-auto lg:overflow-x-visible pb-2 lg:pb-0" id="owner-sidebar-properties">
-                        </div>
+                        <!-- Loaded dynamically -->
+                    </div>
                     
                     <div class="pt-3 border-t border-slate-100 hidden lg:block text-center">
                         <span class="text-xs text-slate-500 font-medium">Total Managed: <strong id="owner-asset-count" class="text-sky-600">0</strong></span>
                     </div>
                 </div>
 
+                <!-- MAIN CONTROLS WORKSPACE -->
                 <div class="lg:col-span-3 space-y-4 sm:space-y-6">
                     
+                    <!-- Analytics Header -->
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div class="bg-white p-4 rounded-xl border border-sky-100 shadow-sm">
                             <span class="text-[10px] uppercase font-bold text-slate-400 block tracking-wide">Total Earnings Logged</span>
@@ -175,8 +202,8 @@
                         </div>
                     </div>
 
+                    <!-- Details Editor Layout -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                        
                         <div class="bg-white p-4 sm:p-5 rounded-2xl border border-sky-100 shadow-sm space-y-4">
                             <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">Listing Profile Editor</h3>
                             <div class="space-y-3 text-xs">
@@ -191,21 +218,25 @@
                                 <div>
                                     <label class="block text-slate-500 font-medium mb-1">Location Details</label>
                                     <select id="owner-edit-location" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
-                                        </select>
+                                        <!-- Shared locations options -->
+                                    </select>
                                 </div>
                                 <div>
                                     <label class="block text-slate-500 font-medium mb-1">Features & Amenities</label>
                                     <div id="owner-amenities-checklist" class="grid grid-cols-2 gap-2 max-h-32 overflow-y-auto p-2.5 bg-slate-50 rounded-lg border border-slate-200">
-                                        </div>
+                                        <!-- Checkboxes -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Gallery Photos and Management Contacts -->
                         <div class="space-y-4 sm:space-y-6">
                             <div class="bg-white p-4 sm:p-5 rounded-2xl border border-sky-100 shadow-sm space-y-3">
                                 <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">Photo Gallery Manager</h3>
                                 <div class="grid grid-cols-4 gap-2" id="owner-gallery-preview-container">
-                                    </div>
+                                    <!-- Miniature preview blocks -->
+                                </div>
                                 <div class="pt-1 text-xs space-y-2">
                                     <label class="block text-slate-500 font-medium">Add Photo Link URL</label>
                                     <div class="flex space-x-2">
@@ -216,7 +247,8 @@
                             </div>
 
                             <div id="owner-stakeholder-card" class="bg-white p-4 sm:p-5 rounded-2xl border border-sky-100 shadow-sm space-y-3">
-                                </div>
+                                <!-- Loaded dynamically -->
+                            </div>
                         </div>
                     </div>
 
@@ -226,28 +258,32 @@
                         </button>
                     </div>
 
+                    <!-- Dynamic Review Listing Matrix Feature for Owners -->
                     <div class="bg-white p-4 sm:p-5 rounded-2xl border border-sky-100 shadow-sm space-y-3">
                         <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">Property Guest Feedback</h3>
                         <div id="owner-property-reviews-container" class="space-y-2.5 max-h-60 overflow-y-auto pr-1">
-                            </div>
+                            <!-- Loaded dynamically -->
+                        </div>
                     </div>
 
+                    <!-- Bookings History Matrix Sheet -->
                     <div class="bg-white rounded-2xl border border-sky-100 overflow-hidden shadow-sm">
                         <div class="p-4 border-b border-slate-100">
                             <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Recent Reservations Log</h3>
                         </div>
                         <div class="overflow-x-auto">
-                            <table class="w-full text-left text-xs min-w-[500px]">
+                            <table class="w-full text-left text-xs min-w-[600px]">
                                 <thead class="bg-slate-50 text-slate-500 font-bold uppercase text-[9px] tracking-wider border-b border-slate-200">
                                     <tr>
                                         <th class="p-3">Guest Particulars</th>
-                                        <th class="p-3">Check-In</th>
-                                        <th class="p-3">Check-Out</th>
-                                        <th class="p-3">Total Cost Paid</th>
+                                        <th class="p-3">Schedule Range</th>
+                                        <th class="p-3">Channel Method</th>
+                                        <th class="p-3">Total Transacted</th>
                                     </tr>
                                 </thead>
                                 <tbody id="owner-table-bookings" class="divide-y divide-slate-100 bg-white text-slate-600 font-medium">
-                                    </tbody>
+                                    <!-- Rows -->
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -255,6 +291,9 @@
             </div>
         </section>
 
+        <!-- ========================================== -->
+        <!-- 3. ADMIN PANEL VIEW                        -->
+        <!-- ========================================== -->
         <section id="view-admin" class="fade-in hidden space-y-6">
             <div class="bg-white p-5 rounded-2xl shadow-sm border border-sky-100 space-y-4">
                 <div>
@@ -278,15 +317,18 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+                <!-- Directory Sidebar Matrix -->
                 <div class="bg-white rounded-2xl border border-sky-100 overflow-hidden shadow-sm flex flex-col h-[480px]">
                     <div class="p-4 border-b border-slate-100 bg-slate-50/50">
                         <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Partner Accounts Directory</h3>
                         <p class="text-[11px] text-slate-400 mt-0.5">Click any record profile line to inspect</p>
                     </div>
                     <div class="divide-y divide-slate-100 overflow-y-auto flex-1" id="admin-accounts-directory-list">
-                        </div>
+                        <!-- Loaded dynamically -->
+                    </div>
                 </div>
 
+                <!-- Account Inspector details node container -->
                 <div class="lg:col-span-2 space-y-6">
                     <div class="bg-white p-5 rounded-2xl border border-sky-100 min-h-[480px] flex flex-col justify-between shadow-sm" id="admin-account-inspect-panel">
                         <div class="space-y-5">
@@ -306,6 +348,7 @@
                             </div>
                         </div>
 
+                        <!-- Platform Administrative Controls -->
                         <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                             <div>
                                 <span class="text-[10px] text-slate-400 uppercase font-bold block">Global Holiday Fee Control</span>
@@ -321,6 +364,11 @@
         </section>
     </main>
 
+    <!-- ========================================== -->
+    <!-- 4. DIALOG MODALS OVERLAYS LAYER            -->
+    <!-- ========================================== -->
+
+    <!-- Property Premium Detail Sheet Modal Panel Overlay Node -->
     <div id="modal-detail" onclick="handleOutsideModalClickClose(event, 'modal-detail')" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
         <div class="bg-white border border-sky-100 rounded-2xl max-w-4xl w-full max-h-[95vh] overflow-y-auto shadow-2xl fade-in flex flex-col text-slate-700">
             
@@ -343,7 +391,8 @@
                 <div class="space-y-1.5">
                     <label class="block text-[10px] font-bold uppercase text-sky-600">Photo Portfolio Gallery (Click to Zoom)</label>
                     <div id="detail-photo-gallery" class="grid grid-cols-2 sm:grid-cols-4 gap-2 rounded-xl overflow-hidden bg-slate-50 p-2 border border-slate-200">
-                        </div>
+                        <!-- Loaded dynamic image thumbnails node boxes arrays -->
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -378,7 +427,8 @@
                         <div class="space-y-2">
                             <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500">Amenities Provided</h4>
                             <div id="detail-container-amenities" class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-600 font-medium">
-                                </div>
+                                <!-- Dynamic check lists -->
+                            </div>
                         </div>
 
                         <div class="space-y-3 pt-3 border-t border-slate-100">
@@ -392,10 +442,12 @@
                                 </div>
                             </div>
                             <div id="detail-reviews-container" class="space-y-2 max-h-48 overflow-y-auto pr-1">
-                                </div>
+                                <!-- Loaded reviews logs entries -->
+                            </div>
                         </div>
                     </div>
 
+                    <!-- Right Interaction Booking Sidebar -->
                     <div class="lg:col-span-1 space-y-4">
                         <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3 sticky top-24 shadow-sm">
                             <div class="flex items-baseline justify-between">
@@ -416,10 +468,11 @@
                                     <div>Su</div><div>Mo</div><div>Tu</div><div>We</div><div>Th</div><div>Fr</div><div>Sa</div>
                                 </div>
                                 <div id="detail-interactive-calendar-grid" class="grid grid-cols-7 gap-1 text-center select-none bg-white p-1.5 rounded border border-slate-200">
-                                    </div>
+                                    <!-- Calendar Blocks populated dynamically -->
+                                </div>
                             </div>
 
-                            <button onclick="triggerBookingFormSubmissionModal()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-xs transition-all uppercase tracking-wider shadow-md">
+                            <button onclick="openCheckoutFlowTunnel()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-xs transition-all uppercase tracking-wider shadow-md">
                                 Reserve Selected Dates
                             </button>
                         </div>
@@ -429,28 +482,49 @@
         </div>
     </div>
 
-    <div id="modal-booking-form" onclick="handleOutsideModalClickClose(event, 'modal-booking-form')" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
-        <div class="bg-white border border-sky-100 text-slate-700 rounded-2xl max-w-md w-full shadow-2xl p-5 fade-in space-y-4">
+    <!-- ======================================================= -->
+    <!-- 2-STEP SYSTEM SUBMISSION TUNNEL MODAL (CHECKOUT + PAY)  -->
+    <!-- ======================================================= -->
+    <div id="modal-checkout-flow" onclick="handleOutsideModalClickClose(event, 'modal-checkout-flow')" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
+        <div class="bg-white border border-sky-100 text-slate-700 rounded-2xl max-w-lg w-full shadow-2xl p-5 fade-in space-y-4">
             
+            <!-- Header Progress Pipeline Track -->
             <div class="flex justify-between items-center pb-2 border-b border-slate-100">
-                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider">Complete Your Reservation</h3>
-                
-                <button onclick="closeModal('modal-booking-form')" class="bg-slate-100 hover:bg-slate-200 text-slate-500 p-1.5 rounded-lg border border-slate-200 transition-all shadow-sm">
+                <div>
+                    <h3 id="checkout-flow-title" class="text-xs font-bold text-slate-900 uppercase tracking-wider">Step 1: Traveler Details</h3>
+                    <div class="flex space-x-1 mt-1">
+                        <div id="step-dot-1" class="h-1.5 w-6 rounded-full bg-sky-600 transition-all"></div>
+                        <div id="step-dot-2" class="h-1.5 w-2 rounded-full bg-slate-200 transition-all"></div>
+                        <div id="step-dot-3" class="h-1.5 w-2 rounded-full bg-slate-200 transition-all"></div>
+                    </div>
+                </div>
+                <button onclick="closeModal('modal-checkout-flow')" class="bg-slate-100 hover:bg-slate-200 text-slate-500 p-1.5 rounded-lg border border-slate-200 transition-all shadow-sm">
                     <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
-            <form id="booking-data-form" onsubmit="processBooking(event)" class="space-y-3.5 text-xs">
+            <!-- Real-Time Shared Price Calculation Bar -->
+            <div class="bg-sky-50/60 p-3 rounded-xl border border-sky-100 flex justify-between items-center text-xs text-slate-600 font-medium">
+                <div>
+                    <span class="text-[9px] uppercase font-bold text-slate-400 block">Total Due Summary</span>
+                    <span id="checkout-calc-nights" class="font-bold text-slate-800">0 Nights Stay</span>
+                </div>
+                <div class="text-right">
+                    <span id="checkout-calc-total-lbl" class="text-sm font-black text-sky-700 block">₱0.00</span>
+                    <span class="text-[9px] text-slate-400 block">(Base + 12% Service Fee)</span>
+                </div>
+            </div>
+
+            <!-- PAGE 1: ORIGINAL TRAVELER PARTICULARS FORM -->
+            <div id="checkout-page-1" class="space-y-3.5 text-xs">
                 <div>
                     <label class="block text-slate-500 font-medium mb-1">Your Full Name</label>
-                    <input id="book-name" type="text" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    <input id="book-name" type="text" placeholder="e.g. Keith Alcantara" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
                 </div>
-
                 <div>
                     <label class="block text-slate-500 font-medium mb-1">Mobile Contact Number</label>
-                    <input id="book-contact" type="tel" placeholder="0917XXXXXXX" required class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-mono focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    <input id="book-contact" type="tel" placeholder="0917XXXXXXX" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 font-mono focus:outline-none focus:ring-1 focus:ring-sky-500">
                 </div>
-
                 <div>
                     <label class="block text-slate-500 font-medium mb-1">Number of Staying Guests</label>
                     <select id="book-guests-count" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
@@ -461,28 +535,156 @@
                         <option value="8">8+ Large Group Outing</option>
                     </select>
                 </div>
-                
-                <div class="grid grid-cols-2 gap-3 text-[11px] font-mono text-slate-500 bg-slate-50 p-2 rounded border border-slate-200">
-                    <div>Check-In: <span id="lbl-summary-in" class="text-slate-800 font-bold block mt-0.5">June --</span></div>
-                    <div>Check-Out: <span id="lbl-summary-out" class="text-slate-800 font-bold block mt-0.5">June --</span></div>
+                <div class="pt-2">
+                    <button onclick="advanceCheckoutToPaymentGateway()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-xs transition-all uppercase tracking-widest shadow-md">
+                        Proceed to Payment Options →
+                    </button>
                 </div>
+            </div>
 
-                <div class="bg-sky-50/60 p-3 rounded-xl border border-sky-100 space-y-1.5 font-medium text-[11px] text-slate-600 shadow-sm">
-                    <div class="flex justify-between"><span>Duration Multiplier:</span><span id="modal-calc-days" class="text-slate-900 font-bold">0 Nights</span></div>
-                    <div class="flex justify-between"><span>Rental Subtotal:</span><span id="modal-calc-subtotal" class="text-slate-900 font-bold">₱0.00</span></div>
-                    <div class="flex justify-between text-slate-400"><span>Service & Processing Fee (12%):</span><span id="modal-calc-tax">₱0.00</span></div>
-                    <div class="flex justify-between border-t border-sky-200 pt-2 text-xs text-sky-700 font-bold">
-                        <span>Total Paid Amount:</span><span id="modal-calc-total">₱0.00</span>
+            <!-- PAGE 2: STRIPE-INSPIRED PAYMENT GATEWAY HUB -->
+            <div id="checkout-page-2" class="hidden space-y-4 text-xs">
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 tracking-wider mb-2">Select Payment Method</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="selectPaymentChannel('card')" id="pay-btn-card" class="payment-method-btn active p-3 rounded-xl flex items-center space-x-2 text-left">
+                            <span class="text-xl">💳</span>
+                            <div>
+                                <span class="font-bold text-slate-900 block text-xs">Credit Card</span>
+                                <span class="text-[9px] text-slate-400 block">Visa, Mastercard</span>
+                            </div>
+                        </button>
+                        <button onclick="selectPaymentChannel('gcash')" id="pay-btn-gcash" class="payment-method-btn p-3 rounded-xl flex items-center space-x-2 text-left">
+                            <span class="text-xl">🔵</span>
+                            <div>
+                                <span class="font-bold text-slate-900 block text-xs">GCash</span>
+                                <span class="text-[9px] text-slate-400 block">Instapay e-Wallet</span>
+                            </div>
+                        </button>
+                        <button onclick="selectPaymentChannel('maya')" id="pay-btn-maya" class="payment-method-btn p-3 rounded-xl flex items-center space-x-2 text-left">
+                            <span class="text-xl">🟢</span>
+                            <div>
+                                <span class="font-bold text-slate-900 block text-xs">Maya</span>
+                                <span class="text-[9px] text-slate-400 block">Digital Secure App</span>
+                            </div>
+                        </button>
+                        <button onclick="selectPaymentChannel('qrph')" id="pay-btn-qrph" class="payment-method-btn p-3 rounded-xl flex items-center space-x-2 text-left">
+                            <span class="text-xl">📱</span>
+                            <div>
+                                <span class="font-bold text-slate-900 block text-xs">QR Ph</span>
+                                <span class="text-[9px] text-slate-400 block">National Unified QR</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
 
-                <button type="submit" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-xs transition-all uppercase tracking-widest shadow-md">
-                    Confirm Reservation Booking
+                <!-- SUB-DYNAMIC FIELDS PER OPTION METHOD -->
+                <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 mt-2">
+                    <!-- Card Field Options Form Container -->
+                    <div id="channel-pane-card" class="space-y-3">
+                        <div>
+                            <label class="block text-slate-500 font-medium mb-1">Cardholder Name</label>
+                            <input type="text" value="Keith Alcantara" class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-slate-500 font-medium mb-1">Card Number</label>
+                            <input type="text" placeholder="4242 •••• •••• 4242" class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg font-mono tracking-wide focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-slate-500 font-medium mb-1">Expiration</label>
+                                <input type="text" placeholder="MM / YY" class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-center focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-slate-500 font-medium mb-1">CVC</label>
+                                <input type="text" placeholder="•••" class="w-full px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-center font-mono focus:outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GCash Field Options Panel -->
+                    <div id="channel-pane-gcash" class="hidden space-y-2 text-center py-2">
+                        <p class="text-slate-600 font-medium">You will be securely redirected to the GCash authorization node gateway.</p>
+                        <div class="max-w-[180px] mx-auto">
+                            <label class="block text-left text-slate-400 text-[10px] uppercase font-bold mb-1">Registered Phone Number</label>
+                            <input id="pay-phone-gcash" type="tel" value="09171234567" class="w-full text-center px-3 py-1.5 bg-white border border-slate-200 rounded-lg font-mono text-xs">
+                        </div>
+                    </div>
+
+                    <!-- Maya Field Options Panel -->
+                    <div id="channel-pane-maya" class="hidden space-y-2 text-center py-2">
+                        <p class="text-slate-600 font-medium">Pay securely via your linked Maya electronic phone wallet account ecosystem.</p>
+                        <div class="max-w-[180px] mx-auto">
+                            <label class="block text-left text-slate-400 text-[10px] uppercase font-bold mb-1">Maya Registered Mobile</label>
+                            <input id="pay-phone-maya" type="tel" value="09171234567" class="w-full text-center px-3 py-1.5 bg-white border border-slate-200 rounded-lg font-mono text-xs">
+                        </div>
+                    </div>
+
+                    <!-- QRPH Field Options Panel -->
+                    <div id="channel-pane-qrph" class="hidden text-center py-2 space-y-2 flex flex-col items-center">
+                        <p class="text-slate-600 font-medium">Scan this secure platform tracking token code with any banking app:</p>
+                        <div class="h-28 w-28 bg-white border-2 border-slate-300 rounded-xl flex items-center justify-center p-2 font-black text-slate-300 font-mono text-[9px] relative tracking-tighter">
+                            <div class="grid grid-cols-3 gap-1 w-full h-full opacity-60">
+                                <div class="bg-slate-900 rounded-sm"></div><div class="bg-slate-900 rounded-sm"></div><div></div>
+                                <div class="bg-slate-900 rounded-sm"></div><div></div><div class="bg-slate-900 rounded-sm"></div>
+                                <div></div><div class="bg-slate-900 rounded-sm"></div><div class="bg-slate-900 rounded-sm"></div>
+                            </div>
+                            <span class="absolute bg-white px-1 text-slate-800 border font-bold scale-90">QR PH MOCK</span>
+                        </div>
+                        <span class="text-[9px] text-slate-400 uppercase tracking-widest font-mono">Reference token ID: #BST-9941A</span>
+                    </div>
+                </div>
+
+                <div class="flex space-x-2 pt-2">
+                    <button onclick="returnToCheckoutPageOne()" class="bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold px-4 py-3 rounded-xl transition-all">
+                        ← Back
+                    </button>
+                    <button onclick="processCheckoutPaymentSubmission()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition-all uppercase tracking-widest shadow-md">
+                        Authorize Payment Transaction
+                    </button>
+                </div>
+            </div>
+
+            <!-- PAGE 3: POST-PURCHASE RECEIPT DELIVERY MANAGER -->
+            <div id="checkout-page-3" class="hidden space-y-4 text-xs">
+                <div class="text-center py-4 space-y-2">
+                    <div class="h-12 w-12 bg-emerald-50 text-emerald-600 border border-emerald-200 rounded-full flex items-center justify-center text-xl mx-auto font-bold shadow-sm">✓</div>
+                    <h4 class="text-sm font-black text-slate-900 uppercase tracking-tight">Booking Finalized & Confirmed!</h4>
+                    <p class="text-slate-500 font-medium max-w-sm mx-auto">Your payment has cleared. Dates have been securely assigned to your traveler name within our global ledger registry sheets.</p>
+                </div>
+
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <label class="block text-[10px] font-black uppercase text-sky-600 tracking-wider">Mock Distribution Center Options</label>
+                    
+                    <div class="space-y-3">
+                        <!-- Option A: Email -->
+                        <div class="p-2.5 bg-white rounded-lg border border-slate-200 flex items-center justify-between">
+                            <label class="flex items-center space-x-2 font-medium text-slate-700 cursor-pointer">
+                                <input type="checkbox" id="receipt-chk-email" checked class="rounded text-sky-600">
+                                <span>Send itemized receipt via Email</span>
+                            </label>
+                            <input id="receipt-txt-email" type="email" value="sample@email.com" class="px-2 py-1 bg-slate-50 border border-slate-200 rounded text-right font-mono max-w-[160px] focus:outline-none">
+                        </div>
+
+                        <!-- Option B: Mobile SMS -->
+                        <div class="p-2.5 bg-white rounded-lg border border-slate-200 flex items-center justify-between">
+                            <label class="flex items-center space-x-2 font-medium text-slate-700 cursor-pointer">
+                                <input type="checkbox" id="receipt-chk-phone" checked class="rounded text-sky-600">
+                                <span>Send confirmation link via SMS</span>
+                            </label>
+                            <input id="receipt-txt-phone" type="tel" value="09178881234" class="px-2 py-1 bg-slate-50 border border-slate-200 rounded text-right font-mono max-w-[160px] focus:outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="dismissCheckoutTunnelComplete()" class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest transition-all shadow-md">
+                    Return back to Property Catalog Directory
                 </button>
-            </form>
+            </div>
         </div>
     </div>
 
+    <!-- Additional Static Modals -->
     <div id="modal-add-property" onclick="handleOutsideModalClickClose(event, 'modal-add-property')" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-2 sm:p-4">
         <div class="bg-white border border-sky-100 text-slate-700 rounded-2xl max-w-md w-full shadow-2xl p-5 fade-in space-y-4">
             <div class="flex justify-between items-center pb-2 border-b border-slate-100">
@@ -494,26 +696,26 @@
             <div class="space-y-3.5 text-xs">
                 <div>
                     <label class="block text-slate-500 font-medium mb-1">Resort Display Name</label>
-                    <input id="add-prop-name" type="text" placeholder="e.g., Azure Wave Villa" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    <input id="add-prop-name" type="text" placeholder="e.g., Azure Wave Villa" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none">
                 </div>
                 <div class="grid grid-cols-2 gap-3">
                     <div>
                         <label class="block text-slate-500 font-medium mb-1">Base Price / Night</label>
-                        <input id="add-prop-price" type="number" value="5500" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
+                        <input id="add-prop-price" type="number" value="5500" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none">
                     </div>
                     <div>
                         <label class="block text-slate-500 font-medium mb-1">Max Capacity Count</label>
-                        <input id="add-prop-capacity" type="number" value="6" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
+                        <input id="add-prop-capacity" type="number" value="6" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none">
                     </div>
                 </div>
                 <div>
                     <label class="block text-slate-500 font-medium mb-1">Location City Area</label>
-                    <select id="add-prop-location" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
-                        </select>
+                    <select id="add-prop-location" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none">
+                    </select>
                 </div>
                 <div>
                     <label class="block text-slate-500 font-medium mb-1">Primary Cover Image Link URL</label>
-                    <input id="add-prop-image" type="text" placeholder="https://images.unsplash.com/..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none focus:ring-1 focus:ring-sky-500">
+                    <input id="add-prop-image" type="text" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-slate-800 focus:outline-none">
                 </div>
                 <button onclick="processAddProperty()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition-all uppercase tracking-wider shadow-md mt-2">
                     Publish Property to Directory
@@ -531,111 +733,75 @@
         </div>
     </div>
 
+    <!-- CORE SIMULATION JAVASCRIPT LAYER -->
     <script>
         const locationsPool = ["Nasugbu, Batangas", "San Juan, Batangas", "Anilao, Mabini", "Calatagan, Batangas", "Lian, Batangas", "Tingloy, Batangas"];
         const customStockPhotos = [
             "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
             "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=600&q=80",
             "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=600&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80"
+            "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=600&q=80"
         ];
         const stockUsers = [
             "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
             "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80"
+            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
         ];
-        const availableAmenities = ["Infinity Pool", "Beachfront Access", "High-speed Wi-Fi", "Full Kitchen Setup", "Air Conditioning", "Spa Lounge", "Free Secured Parking", "Barbecue Grill Area", "Smart TV Home System"];
-        const poolFirstNames = ["Alexander", "Isabella", "Gabriel", "Sophia", "Mateo", "Olivia", "Lucas", "Ava", "Christian", "Mia"];
-        const poolLastNames = ["Santos", "Del Rosario", "Reyes", "Alcantara", "Villanueva", "Recto", "Mendoza", "Laurel", "Dimaculangan", "Aquino"];
-
+        const availableAmenities = ["Infinity Pool", "Beachfront Access", "High-speed Wi-Fi", "Full Kitchen Setup", "Air Conditioning"];
+        
         let globalResortsRegistryState = [];
         let globalSelectedActiveRoleId = "customer";
         let localSelectedPropertyId = null;
-        
         let customerCurrentPagePointer = 1;
-        const customerPropertiesPerPageLimit = 15;
+        const customerPropertiesPerPageLimit = 16;
 
-        // Interactive Selected Ranges Machine States
         let calendarInputSelectedStartDay = null;
         let calendarInputSelectedEndDay = null;
+        let selectedActivePaymentChannelMethod = 'card';
 
-        // Generate the primary dataset under mock portfolios accounts trees
-        for (let idx = 1; idx <= 50; idx++) {
-            let rndPrice = Math.floor(Math.random() * 11000) + 4000;
-            let rndRating = (Math.random() * 0.6 + 4.3).toFixed(1);
+        // Seed Data Initialization
+        for (let idx = 1; idx <= 32; idx++) {
+            let rndPrice = Math.floor(Math.random() * 10000) + 4500;
             let locationEntity = locationsPool[idx % locationsPool.length];
-            let clusterOwnerSlotId = (idx % 6) + 1; 
-            let ownerName = `${poolFirstNames[clusterOwnerSlotId]} ${poolLastNames[(clusterOwnerSlotId + 2) % poolLastNames.length]}`;
-            let hostName = `${poolFirstNames[(idx + 3) % poolFirstNames.length]} ${poolLastNames[(idx + 5) % poolLastNames.length]}`;
+            let ownerClusterId = (idx % 4) + 1;
             
-            let bookedDates = [];
-            let seqSize = Math.floor(Math.random() * 3) + 2; 
-            for(let step=0; step < seqSize; step++){
-                let startSeed = Math.floor(Math.random() * 20) + 1;
-                bookedDates.push(startSeed, startSeed+1, startSeed+2);
-            }
-            bookedDates = [...new Set(bookedDates)].filter(d => d <= 30).sort((a,b)=>a-b);
-
-            let reviewCount = Math.floor(Math.random() * 4) + 3;
-            let reviewCollection = [];
-            for(let r=0; r<reviewCount; r++) {
-                reviewCollection.push({
-                    authorName: `${poolFirstNames[(idx + r) % poolFirstNames.length]} ${poolLastNames[(idx + r + 2) % poolLastNames.length]}`,
-                    avatar: stockUsers[(idx + r) % stockUsers.length],
-                    score: Math.floor(Math.random() * 2) + 4, 
-                    dateStamp: `June ${Math.floor(Math.random()*15)+1}, 2026`,
-                    commentBody: `Fantastic weekend stay! The resort staff were incredibly accommodating, properties are clean, and beach access was unmatched.`
-                });
-            }
-
             globalResortsRegistryState.push({
                 id: 1000 + idx,
-                ownerAccountId: 500 + clusterOwnerSlotId,
+                ownerAccountId: 500 + ownerClusterId,
                 name: `Batangas Sanctuary Resort #${idx}`,
                 location: locationEntity,
                 price: rndPrice,
-                rating: parseFloat(rndRating),
-                capacity: Math.floor(Math.random() * 8) + 4,
+                rating: parseFloat((Math.random() * 0.5 + 4.4).toFixed(1)),
+                capacity: Math.floor(Math.random() * 6) + 4,
                 image: customStockPhotos[idx % customStockPhotos.length],
-                galleryPhotos: [
-                    customStockPhotos[idx % customStockPhotos.length],
-                    customStockPhotos[(idx + 1) % customStockPhotos.length],
-                    customStockPhotos[(idx + 2) % customStockPhotos.length],
-                    customStockPhotos[(idx + 3) % customStockPhotos.length]
-                ],
-                amenities: [availableAmenities[idx % 3], availableAmenities[4], availableAmenities[6], availableAmenities[7]],
-                ownerName: ownerName,
-                ownerContact: `+63 917 ${Math.floor(2000000 + Math.random() * 7000000)}`,
-                ownerAvatar: stockUsers[clusterOwnerSlotId % stockUsers.length],
-                hostName: hostName,
-                hostContact: `+63 919 ${Math.floor(2000000 + Math.random() * 7000000)}`,
-                hostAvatar: stockUsers[(idx + 4) % stockUsers.length],
-                bookedDays: bookedDates,
-                maintenanceDays: [14, 15],
+                galleryPhotos: [customStockPhotos[idx % customStockPhotos.length], customStockPhotos[(idx+1)%4]],
+                amenities: ["Infinity Pool", "High-speed Wi-Fi", "Air Conditioning"],
+                ownerName: "Alexander Santos",
+                ownerContact: "+63 917 555 0192",
+                ownerAvatar: stockUsers[0],
+                hostName: "Jenny Dimaculangan",
+                hostContact: "+63 919 444 8821",
+                hostAvatar: stockUsers[2],
+                bookedDays: [4, 5, 12, 13],
+                maintenanceDays: [20],
                 bookingsRegistry: [
-                    { guest: "Camille Reyes-Mendoza", in: 4, out: 7, revenue: rndPrice * 3 },
-                    { guest: "Juan Carlos Laurel", in: 10, out: 12, revenue: rndPrice * 2 }
+                    { guest: "Camille Reyes", in: 4, out: 6, channel: "Visa Credit Card", revenue: rndPrice * 2 },
+                    { guest: "Juan Carlos Laurel", in: 12, out: 14, channel: "GCash Wallet", revenue: rndPrice * 2 }
                 ],
-                reviews: reviewCollection
+                reviews: [
+                    { authorName: "Maria Sophia V.", avatar: stockUsers[1], score: 5, dateStamp: "May 12, 2026", commentBody: "Stunning beachfront views, well-maintained facilities, and lightning-fast Wi-Fi. Perfect for remote engineering tasks." }
+                ]
             });
         }
 
         window.addEventListener("DOMContentLoaded", () => {
-            // Prepopulate select layouts options elements fields pools
-            const editLocSelect = document.getElementById("owner-edit-location");
-            const addLocSelect = document.getElementById("add-prop-location");
-            editLocSelect.innerHTML = ""; addLocSelect.innerHTML = "";
-            locationsPool.forEach(loc => {
-                editLocSelect.innerHTML += `<option value="${loc}">${loc}</option>`;
-                addLocSelect.innerHTML += `<option value="${loc}">${loc}</option>`;
+            const editLoc = document.getElementById("owner-edit-location");
+            const addLoc = document.getElementById("add-prop-location");
+            locationsPool.forEach(l => {
+                editLoc.innerHTML += `<option value="${l}">${l}</option>`;
+                addLoc.innerHTML += `<option value="${l}">${l}</option>`;
             });
-
             renderCustomerGridFramework();
-            initOwnerDashboardLayout();
-            renderGlobalAdminDashboardData();
         });
 
         function switchRole(roleId) {
@@ -643,30 +809,26 @@
             document.getElementById("view-customer").classList.add("hidden");
             document.getElementById("view-owner").classList.add("hidden");
             document.getElementById("view-admin").classList.add("hidden");
+            document.getElementById("nav-customer").className = "px-4 py-2 text-xs font-bold rounded-lg text-slate-500 hover:text-sky-600";
+            document.getElementById("nav-owner").className = "px-4 py-2 text-xs font-bold rounded-lg text-slate-500 hover:text-sky-600";
+            document.getElementById("nav-admin").className = "px-4 py-2 text-xs font-bold rounded-lg text-slate-500 hover:text-sky-600";
 
-            document.getElementById("nav-customer").className = "px-4 py-2 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-sky-600";
-            document.getElementById("nav-owner").className = "px-4 py-2 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-sky-600";
-            document.getElementById("nav-admin").className = "px-4 py-2 text-xs font-bold rounded-lg transition-all text-slate-600 hover:text-sky-600";
-
-            if (roleId === 'customer') {
+            if(roleId === 'customer') {
                 document.getElementById("view-customer").classList.remove("hidden");
-                document.getElementById("nav-customer").className = "px-4 py-2 text-xs font-bold rounded-lg transition-all bg-sky-600 text-white shadow-sm";
+                document.getElementById("nav-customer").className = "px-4 py-2 text-xs font-bold rounded-lg bg-sky-600 text-white shadow-sm";
                 renderCustomerGridFramework();
-            } else if (roleId === 'owner') {
+            } else if(roleId === 'owner') {
                 document.getElementById("view-owner").classList.remove("hidden");
-                document.getElementById("nav-owner").className = "px-4 py-2 text-xs font-bold rounded-lg transition-all bg-sky-600 text-white shadow-sm";
+                document.getElementById("nav-owner").className = "px-4 py-2 text-xs font-bold rounded-lg bg-sky-600 text-white shadow-sm";
                 initOwnerDashboardLayout();
-            } else if (roleId === 'admin') {
+            } else if(roleId === 'admin') {
                 document.getElementById("view-admin").classList.remove("hidden");
-                document.getElementById("nav-admin").className = "px-4 py-2 text-xs font-bold rounded-lg transition-all bg-sky-600 text-white shadow-sm";
+                document.getElementById("nav-admin").className = "px-4 py-2 text-xs font-bold rounded-lg bg-sky-600 text-white shadow-sm";
                 renderGlobalAdminDashboardData();
             }
         }
 
-        function filterResorts() {
-            customerCurrentPagePointer = 1;
-            renderCustomerGridFramework();
-        }
+        function filterResorts() { customerCurrentPagePointer = 1; renderCustomerGridFramework(); }
 
         function renderCustomerGridFramework() {
             const destVal = document.getElementById("search-dest").value.toLowerCase();
@@ -674,656 +836,395 @@
             const priceVal = document.getElementById("search-price").value;
             const sortVal = document.getElementById("search-sort").value;
 
-            let recordsPipeline = globalResortsRegistryState.filter(item => {
+            let pipeline = globalResortsRegistryState.filter(item => {
                 let matchesDest = item.location.toLowerCase().includes(destVal) || item.name.toLowerCase().includes(destVal);
-                let matchesCapacity = item.capacity >= guestsVal;
-                let matchesPrice = priceVal === 'all' ? true : item.price <= parseInt(priceVal);
-                return matchesDest && matchesCapacity && matchesPrice;
+                return matchesDest && item.capacity >= guestsVal && (priceVal === 'all' ? true : item.price <= parseInt(priceVal));
             });
 
-            if (sortVal === 'rating') {
-                recordsPipeline.sort((a, b) => b.rating - a.rating);
-            } else if (sortVal === 'price-asc') {
-                recordsPipeline.sort((a, b) => a.price - b.price);
-            } else if (sortVal === 'price-desc') {
-                recordsPipeline.sort((a, b) => b.price - a.price);
-            }
+            if (sortVal === 'price-asc') pipeline.sort((a,b) => a.price - b.price);
+            else if (sortVal === 'price-desc') pipeline.sort((a,b) => b.price - a.price);
 
-            document.getElementById("results-counter").innerText = `${recordsPipeline.length} Stays Verified`;
+            document.getElementById("results-counter").innerText = `${pipeline.length} Stays Verified`;
+            const maxPages = Math.ceil(pipeline.length / customerPropertiesPerPageLimit) || 1;
+            const subset = pipeline.slice((customerCurrentPagePointer - 1) * customerPropertiesPerPageLimit, customerCurrentPagePointer * customerPropertiesPerPageLimit);
 
-            const absoluteMaxPages = Math.ceil(recordsPipeline.length / customerPropertiesPerPageLimit) || 1;
-            if(customerCurrentPagePointer > absoluteMaxPages) customerCurrentPagePointer = absoluteMaxPages;
+            const grid = document.getElementById("resort-grid");
+            grid.innerHTML = "";
 
-            const startIndex = (customerCurrentPagePointer - 1) * customerPropertiesPerPageLimit;
-            const paginatedOutputSubset = recordsPipeline.slice(startIndex, startIndex + customerPropertiesPerPageLimit);
-
-            const gridNode = document.getElementById("resort-grid");
-            gridNode.innerHTML = "";
-
-            if(paginatedOutputSubset.length === 0) {
-                gridNode.innerHTML = `
-                    <div class="col-span-full py-12 bg-white rounded-2xl border border-slate-200 border-dashed text-center text-xs text-slate-400">
-                        No properties found matching your criteria. Try adjusting filters.
-                    </div>`;
-                document.getElementById("pagination-controls").innerHTML = "";
-                return;
-            }
-
-            paginatedOutputSubset.forEach(resort => {
+            subset.forEach(resort => {
                 const card = document.createElement("div");
                 card.className = "bg-white rounded-2xl overflow-hidden border border-sky-100 shadow-sm flex flex-col hover-card group";
                 card.innerHTML = `
-                    <div class="relative h-44 w-full bg-slate-100 overflow-hidden">
-                        <img src="${resort.image}" alt="${resort.name}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-102">
-                        <div class="absolute top-2.5 right-2.5 bg-white/95 backdrop-blur-sm px-2 py-0.5 rounded-lg text-[10px] font-bold text-amber-600 flex items-center space-x-0.5 shadow-sm">
-                            <span>★</span> <span>${resort.rating}</span>
+                    <div class="relative h-40 w-full bg-slate-100 overflow-hidden">
+                        <img src="${resort.image}" class="w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-white/95 px-2 py-0.5 rounded-lg text-[10px] font-bold text-amber-500 shadow-sm">
+                            ★ ${resort.rating}
                         </div>
                     </div>
                     <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
-                        <div class="space-y-1">
+                        <div>
                             <span class="text-[9px] text-sky-600 uppercase tracking-wider block font-bold">${resort.location}</span>
-                            <h3 class="text-xs font-bold text-slate-900 tracking-tight line-clamp-1">${resort.name}</h3>
-                            <p class="text-[11px] text-slate-400 line-clamp-1 pt-0.5">${resort.amenities.join(' • ')}</p>
+                            <h3 class="text-xs font-bold text-slate-900 line-clamp-1">${resort.name}</h3>
                         </div>
                         <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-                            <div>
-                                <span class="text-[9px] text-slate-400 block">Nightly Price</span>
-                                <span class="text-xs font-black text-slate-900">₱${resort.price.toLocaleString()}</span>
-                            </div>
-                            <button onclick="openPropertyDetailModal(${resort.id})" class="bg-sky-600 hover:bg-sky-700 text-white font-bold px-3 py-1.5 rounded-lg text-[10px] uppercase tracking-wide transition-all shadow-sm">
-                                View Resort
-                            </button>
+                            <div><span class="text-xs font-black text-slate-900">₱${resort.price.toLocaleString()}</span></div>
+                            <button onclick="openPropertyDetailModal(${resort.id})" class="bg-sky-600 text-white font-bold px-3 py-1.5 rounded-lg text-[10px] uppercase shadow-sm">View Resort</button>
                         </div>
                     </div>`;
-                gridNode.appendChild(card);
+                grid.appendChild(card);
             });
-
-            renderPaginationControls(absoluteMaxPages);
+            renderPaginationControls(maxPages);
         }
 
         function renderPaginationControls(maxPages) {
             const paginationNode = document.getElementById("pagination-controls");
-            paginationNode.innerHTML = "";
-            if(maxPages <= 1) return;
-
+            paginationNode.innerHTML = ""; if(maxPages <= 1) return;
             for(let p = 1; p <= maxPages; p++) {
-                const pageBtn = document.createElement("button");
-                pageBtn.innerText = p;
-                pageBtn.className = `px-2.5 py-1 rounded-md border text-[11px] font-bold transition-all ${customerCurrentPagePointer === p ? 'bg-sky-600 border-sky-500 text-white' : 'border-slate-200 text-slate-500 bg-white hover:bg-slate-50'}`;
-                pageBtn.onclick = () => { customerCurrentPagePointer = p; renderCustomerGridFramework(); };
-                paginationNode.appendChild(pageBtn);
+                paginationNode.innerHTML += `<button onclick="customerCurrentPagePointer=${p}; renderCustomerGridFramework();" class="px-2.5 py-1 rounded border text-[11px] font-bold ${customerCurrentPagePointer===p?'bg-sky-600 text-white':'bg-white text-slate-500'}">${p}</button>`;
             }
         }
 
-        // ==========================================
-        // DYNAMIC CUSTOM RANGE CALENDAR GENERATOR
-        // ==========================================
         function openPropertyDetailModal(propertyId) {
             localSelectedPropertyId = propertyId;
             const target = globalResortsRegistryState.find(r => r.id === propertyId);
-            if(!target) return;
-
-            calendarInputSelectedStartDay = null;
-            calendarInputSelectedEndDay = null;
+            calendarInputSelectedStartDay = null; calendarInputSelectedEndDay = null;
 
             document.getElementById("detail-lbl-name").innerText = target.name;
             document.getElementById("detail-lbl-location").innerText = target.location;
             document.getElementById("detail-lbl-rating").innerText = target.rating;
             document.getElementById("detail-lbl-price").innerText = `₱${target.price.toLocaleString()}`;
-            document.getElementById("detail-lbl-desc").innerText = `Welcome to ${target.name}. Nestled in the pristine coastal region of ${target.location}, this gorgeous getaway offers verified accommodation capacity perfect for up to ${target.capacity} guests. Enjoy our local amenities, tailored premium service, and on-call stakeholder caretakers.`;
+            document.getElementById("detail-lbl-desc").innerText = `Premium sanctuary listing located at ${target.location}, engineered for up to ${target.capacity} guests. Built with modern amenities and an on-site caretaker ready to verify requirements.`;
 
             document.getElementById("detail-lbl-owner-name").innerText = target.ownerName;
             document.getElementById("detail-lbl-owner-contact").innerText = target.ownerContact;
             document.getElementById("detail-img-owner").src = target.ownerAvatar;
-
             document.getElementById("detail-lbl-host-name").innerText = target.hostName;
             document.getElementById("detail-lbl-host-contact").innerText = target.hostContact;
             document.getElementById("detail-img-host").src = target.hostAvatar;
 
-            // Gallery thumbnails click integration zoom handler
-            const photoGalleryNode = document.getElementById("detail-photo-gallery");
-            photoGalleryNode.innerHTML = "";
-            target.galleryPhotos.forEach((photoUrl) => {
-                const div = document.createElement("div");
-                div.className = "h-16 bg-slate-200 rounded overflow-hidden cursor-zoom-in hover:opacity-90 transition-opacity";
-                div.onclick = (e) => { e.stopPropagation(); openGalleryZoomOverlay(photoUrl); };
-                div.innerHTML = `<img src="${photoUrl}" class="w-full h-full object-cover">`;
-                photoGalleryNode.appendChild(div);
+            const gallery = document.getElementById("detail-photo-gallery");
+            gallery.innerHTML = "";
+            target.galleryPhotos.forEach(p => {
+                gallery.innerHTML += `<div onclick="openGalleryZoomOverlay('${p}')" class="h-14 bg-slate-200 rounded cursor-zoom-in overflow-hidden"><img src="${p}" class="w-full h-full object-cover"></div>`;
             });
 
-            const amenitiesContainer = document.getElementById("detail-container-amenities");
-            amenitiesContainer.innerHTML = "";
+            const amenities = document.getElementById("detail-container-amenities");
+            amenities.innerHTML = "";
             target.amenities.forEach(am => {
-                const item = document.createElement("div");
-                item.className = "bg-slate-50 p-2 rounded-lg border border-slate-200 flex items-center space-x-1.5";
-                item.innerHTML = `<span class="text-sky-600 font-bold">✓</span> <span class="truncate">${am}</span>`;
-                amenitiesContainer.appendChild(item);
+                amenities.innerHTML += `<div class="bg-slate-50 p-2 rounded-lg border flex items-center space-x-1"><span>✓</span><span class="truncate">${am}</span></div>`;
             });
 
-            const reviewsContainer = document.getElementById("detail-reviews-container");
-            reviewsContainer.innerHTML = "";
-            let scoreSum = 0;
-            target.reviews.forEach(rev => {
-                scoreSum += rev.score;
-                const card = document.createElement("div");
-                card.className = "bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1 text-xs";
-                card.innerHTML = `
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center space-x-2">
-                            <img src="${rev.avatar}" class="h-5 w-5 rounded-full object-cover">
-                            <span class="font-bold text-slate-800">${rev.authorName}</span>
-                        </div>
-                        <span class="text-amber-500 text-[10px]">${"★".repeat(rev.score)}</span>
-                    </div>
-                    <p class="text-slate-500 font-medium">${rev.commentBody}</p>`;
-                reviewsContainer.appendChild(card);
+            const reviewContainer = document.getElementById("detail-reviews-container");
+            reviewContainer.innerHTML = "";
+            target.reviews.forEach(r => {
+                reviewContainer.innerHTML += `<div class="bg-slate-50 p-3 rounded-xl border space-y-1"><div class="flex justify-between font-bold"><span>${r.authorName}</span><span class="text-amber-500">★ ${r.score}</span></div><p class="text-slate-500 font-medium">${r.commentBody}</p></div>`;
             });
 
-            const avgRating = (scoreSum / target.reviews.length).toFixed(1);
-            document.getElementById("detail-reviews-avg").innerText = avgRating;
+            document.getElementById("detail-reviews-avg").innerText = target.rating;
             document.getElementById("detail-reviews-count").innerText = `${target.reviews.length} reviews`;
 
             refreshInteractiveCalendarGrid();
             document.getElementById("modal-detail").classList.remove("hidden");
         }
 
-        function openGalleryZoomOverlay(imgUrl) {
-            document.getElementById("gallery-zoom-img-node").src = imgUrl;
+        function openGalleryZoomOverlay(url) {
+            document.getElementById("gallery-zoom-img-node").src = url;
             document.getElementById("modal-gallery-zoom").classList.remove("hidden");
         }
 
-        // RE-DRAWING CALENDAR ACCORDING TO USER HIGHLIGHT CONTROLS RANGE SELECTION
         function refreshInteractiveCalendarGrid() {
             const target = globalResortsRegistryState.find(r => r.id === localSelectedPropertyId);
-            if(!target) return;
+            const grid = document.getElementById("detail-interactive-calendar-grid");
+            grid.innerHTML = "";
 
-            const gridNode = document.getElementById("detail-interactive-calendar-grid");
-            gridNode.innerHTML = "";
-
-            // Dynamic padding shift to start on June 2026 Simulation month layout block (starts Monday)
-            for (let pad = 0; pad < 1; pad++) {
-                const emptyCell = document.createElement("div");
-                emptyCell.className = "cal-day-empty";
-                gridNode.appendChild(emptyCell);
-            }
+            for(let pad=0; pad<1; pad++) grid.innerHTML += `<div class="cal-day-empty"></div>`;
 
             for (let day = 1; day <= 30; day++) {
                 const cell = document.createElement("div");
-                cell.className = "cal-day ";
-                cell.innerText = day;
+                cell.className = "cal-day "; cell.innerText = day;
 
-                const isBooked = target.bookedDays.includes(day);
-                const isMaintenance = target.maintenanceDays && target.maintenanceDays.includes(day);
-
-                if (isBooked) {
-                    cell.className += "cal-day-booked";
-                } else if (isMaintenance) {
-                    cell.className += "cal-day-blocked";
-                } else {
+                if (target.bookedDays.includes(day)) cell.className += "cal-day-booked";
+                else if (target.maintenanceDays.includes(day)) cell.className += "cal-day-blocked";
+                else {
                     cell.className += "cal-day-available";
-                    
-                    // Highlights classes application matching logic blocks routines
-                    if (calendarInputSelectedStartDay && day === calendarInputSelectedStartDay) {
-                        cell.className += " cal-day-selected-start";
-                    } else if (calendarInputSelectedEndDay && day === calendarInputSelectedEndDay) {
-                        cell.className += " cal-day-selected-end";
-                    } else if (calendarInputSelectedStartDay && calendarInputSelectedEndDay && day > calendarInputSelectedStartDay && day < calendarInputSelectedEndDay) {
-                        cell.className += " cal-day-selected-range";
-                    }
-
-                    cell.onclick = () => handleCalendarDayClickSelection(day);
+                    if (day === calendarInputSelectedStartDay) cell.className += " cal-day-selected-start";
+                    else if (day === calendarInputSelectedEndDay) cell.className += " cal-day-selected-end";
+                    else if (calendarInputSelectedStartDay && calendarInputSelectedEndDay && day > calendarInputSelectedStartDay && day < calendarInputSelectedEndDay) cell.className += " cal-day-selected-range";
+                    cell.onclick = () => handleCalendarDaySelection(day);
                 }
-                gridNode.appendChild(cell);
+                grid.appendChild(cell);
             }
 
-            // Sync Summary Text String
-            const summaryLabel = document.getElementById("detail-calendar-range-summary-lbl");
-            if (calendarInputSelectedStartDay && !calendarInputSelectedEndDay) {
-                summaryLabel.innerText = `Selected Check-In: June ${calendarInputSelectedStartDay} (Select Check-Out Date)`;
-                summaryLabel.className = "text-[10px] text-sky-700 font-bold bg-sky-50 p-2 rounded border border-sky-200 text-center";
-            } else if (calendarInputSelectedStartDay && calendarInputSelectedEndDay) {
-                summaryLabel.innerText = `Booking Period: June ${calendarInputSelectedStartDay} to June ${calendarInputSelectedEndDay} (${calendarInputSelectedEndDay - calendarInputSelectedStartDay} Nights)`;
-                summaryLabel.className = "text-[10px] text-emerald-700 font-bold bg-emerald-50 p-2 rounded border border-emerald-200 text-center";
+            const lbl = document.getElementById("detail-calendar-range-summary-lbl");
+            if(calendarInputSelectedStartDay && calendarInputSelectedEndDay) {
+                lbl.innerText = ` June ${calendarInputSelectedStartDay} to June ${calendarInputSelectedEndDay} (${calendarInputSelectedEndDay - calendarInputSelectedStartDay} Nights)`;
+            } else if (calendarInputSelectedStartDay) {
+                lbl.innerText = `Selected Check-In: June ${calendarInputSelectedStartDay} (Choose Check-Out)`;
             } else {
-                summaryLabel.innerText = "Click a start date and an end date on the grid calendar below:";
-                summaryLabel.className = "text-[10px] text-slate-500 font-medium bg-white p-2 rounded border border-slate-200 text-center";
+                lbl.innerText = "Click a start date and an end date on the calendar grid:";
             }
         }
 
-        function handleCalendarDayClickSelection(clickedDay) {
-            const target = globalResortsRegistryState.find(r => r.id === localSelectedPropertyId);
-            if(!target) return;
-
+        function handleCalendarDaySelection(day) {
             if (!calendarInputSelectedStartDay || (calendarInputSelectedStartDay && calendarInputSelectedEndDay)) {
-                calendarInputSelectedStartDay = clickedDay;
-                calendarInputSelectedEndDay = null;
-            } else if (clickedDay <= calendarInputSelectedStartDay) {
-                calendarInputSelectedStartDay = clickedDay;
-                calendarInputSelectedEndDay = null;
+                calendarInputSelectedStartDay = day; calendarInputSelectedEndDay = null;
+            } else if (day <= calendarInputSelectedStartDay) {
+                calendarInputSelectedStartDay = day; calendarInputSelectedEndDay = null;
             } else {
-                // Ensure no conflict booked dates lie inside user range parameters
-                let rangeBlockedOverlap = false;
-                for (let d = calendarInputSelectedStartDay; d <= clickedDay; d++) {
-                    if (target.bookedDays.includes(d) || target.maintenanceDays.includes(d)) {
-                        rangeBlockedOverlap = true;
-                        break;
-                    }
-                }
-
-                if (rangeBlockedOverlap) {
-                    alert("Date overlap restriction error: Selected range intersects with already booked or blocked days. Please pick another sequence.");
-                    calendarInputSelectedStartDay = clickedDay;
-                    calendarInputSelectedEndDay = null;
-                } else {
-                    calendarInputSelectedEndDay = clickedDay;
-                }
+                calendarInputSelectedEndDay = day;
             }
             refreshInteractiveCalendarGrid();
         }
 
-        function resetCalendarSelection() {
-            calendarInputSelectedStartDay = null;
-            calendarInputSelectedEndDay = null;
-            refreshInteractiveCalendarGrid();
-        }
+        function resetCalendarSelection() { calendarInputSelectedStartDay = null; calendarInputSelectedEndDay = null; refreshInteractiveCalendarGrid(); }
 
-        function triggerBookingFormSubmissionModal() {
+        // =======================================================
+        // NEW 2-STEP MULTI-PAGE SYSTEM CHECKOUT INTERFACES DRIVER
+        // =======================================================
+        let computedGrandTotalSum = 0;
+        let computedDeltaNights = 0;
+
+        function openCheckoutFlowTunnel() {
             if (!calendarInputSelectedStartDay || !calendarInputSelectedEndDay) {
-                alert("Please click and pick an interactive Check-In and Check-Out date range sequence directly onto the display calendar grid before confirming.");
+                alert("Please select your check-in and check-out dates using the inline calendar interface before checking out.");
                 return;
             }
-
             const target = globalResortsRegistryState.find(r => r.id === localSelectedPropertyId);
-            if(!target) return;
+            
+            // Set Pricing Computations Metrics
+            computedDeltaNights = calendarInputSelectedEndDay - calendarInputSelectedStartDay;
+            const subtotal = target.price * computedDeltaNights;
+            computedGrandTotalSum = subtotal + (subtotal * 0.12);
 
-            document.getElementById("book-name").value = "";
-            document.getElementById("book-contact").value = "";
-            document.getElementById("lbl-summary-in").innerText = `June ${calendarInputSelectedStartDay}, 2026`;
-            document.getElementById("lbl-summary-out").innerText = `June ${calendarInputSelectedEndDay}, 2026`;
+            document.getElementById("checkout-calc-nights").innerText = `${computedDeltaNights} Nights Stay (June ${calendarInputSelectedStartDay} - ${calendarInputSelectedEndDay})`;
+            document.getElementById("checkout-calc-total-lbl").innerText = `₱${computedGrandTotalSum.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
 
-            let deltaNights = calendarInputSelectedEndDay - calendarInputSelectedStartDay;
-            const baseSubtotal = target.price * deltaNights;
-            const feeTax = baseSubtotal * 0.12;
-            const grandTotal = baseSubtotal + feeTax;
-
-            document.getElementById("modal-calc-days").innerText = `${deltaNights} Night${deltaNights === 1 ? '' : 's'}`;
-            document.getElementById("modal-calc-subtotal").innerText = `₱${baseSubtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById("modal-calc-tax").innerText = `₱${feeTax.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById("modal-calc-total").innerText = `₱${grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-
-            document.getElementById("modal-booking-form").classList.remove("hidden");
+            // Reset Subpages positions tracking nodes
+            returnToCheckoutPageOne();
+            document.getElementById("modal-checkout-flow").classList.remove("hidden");
         }
 
-        function processBooking(evt) {
-            evt.preventDefault();
+        function advanceCheckoutToPaymentGateway() {
+            const name = document.getElementById("book-name").value.trim();
+            const contact = document.getElementById("book-contact").value.trim();
+            if(!name || !contact) {
+                alert("Please fully satisfy the full name and mobile contact fields parameters to proceed.");
+                return;
+            }
+            
+            // Page Slide Animation States Switching
+            document.getElementById("checkout-page-1").classList.add("hidden");
+            document.getElementById("checkout-page-2").classList.remove("hidden");
+            
+            document.getElementById("checkout-flow-title").innerText = "Step 2: Stripe Payment Gateway Node";
+            document.getElementById("step-dot-1").className = "h-1.5 w-2 rounded-full bg-emerald-500";
+            document.getElementById("step-dot-2").className = "h-1.5 w-6 rounded-full bg-sky-600";
+            
+            selectPaymentChannel('card');
+        }
+
+        function returnToCheckoutPageOne() {
+            document.getElementById("checkout-page-2").classList.add("hidden");
+            document.getElementById("checkout-page-3").classList.add("hidden");
+            document.getElementById("checkout-page-1").classList.remove("hidden");
+
+            document.getElementById("checkout-flow-title").innerText = "Step 1: Traveler Details";
+            document.getElementById("step-dot-1").className = "h-1.5 w-6 rounded-full bg-sky-600";
+            document.getElementById("step-dot-2").className = "h-1.5 w-2 rounded-full bg-slate-200";
+            document.getElementById("step-dot-3").className = "h-1.5 w-2 rounded-full bg-slate-200";
+        }
+
+        function selectPaymentChannel(channelId) {
+            selectedActivePaymentChannelMethod = channelId;
+            
+            // Toggle visual selection button state frames
+            document.querySelectorAll(".payment-method-btn").forEach(b => b.classList.remove("active"));
+            document.getElementById(`pay-btn-${channelId}`).classList.add("active");
+
+            // Hide all payment subpanes fields mapping blocks
+            document.getElementById("channel-pane-card").classList.add("hidden");
+            document.getElementById("channel-pane-gcash").classList.add("hidden");
+            document.getElementById("channel-pane-maya").classList.add("hidden");
+            document.getElementById("channel-pane-qrph").classList.add("hidden");
+
+            // Display matching active selection panel layout context
+            document.getElementById(`channel-pane-${channelId}`).classList.remove("hidden");
+        }
+
+        function processCheckoutPaymentSubmission() {
             const idx = globalResortsRegistryState.findIndex(r => r.id === localSelectedPropertyId);
-            if(idx === -1) return;
-
             const guestName = document.getElementById("book-name").value.trim();
-            const contactNo = document.getElementById("book-contact").value.trim();
-            const guestsCount = document.getElementById("book-guests-count").value;
 
-            // Append date sequence tracks arrays properties states
+            // Push date blocks restrictions into active properties matrix
             for (let d = calendarInputSelectedStartDay; d < calendarInputSelectedEndDay; d++) {
                 globalResortsRegistryState[idx].bookedDays.push(d);
             }
-            globalResortsRegistryState[idx].bookedDays.sort((a,b)=>a-b);
 
-            const durationNights = calendarInputSelectedEndDay - calendarInputSelectedStartDay;
-            const revenueSum = globalResortsRegistryState[idx].price * durationNights;
+            let mappedChannelStringLabel = "Credit Card (Stripe)";
+            if(selectedActivePaymentChannelMethod === 'gcash') mappedChannelStringLabel = "GCash Wallet";
+            if(selectedActivePaymentChannelMethod === 'maya') mappedChannelStringLabel = "Maya Wallet";
+            if(selectedActivePaymentChannelMethod === 'qrph') mappedChannelStringLabel = "QR Ph Secure Token";
 
+            // Map and log transaction directly inside host records registry arrays
             globalResortsRegistryState[idx].bookingsRegistry.push({
                 guest: guestName,
                 in: calendarInputSelectedStartDay,
                 out: calendarInputSelectedEndDay,
-                revenue: revenueSum
+                channel: mappedChannelStringLabel,
+                revenue: globalResortsRegistryState[idx].price * computedDeltaNights
             });
 
-            alert(`Reservation Success! Confirmed for ${guestName} (${guestsCount} staying guests). Caretaker contact info sent to ${contactNo}.`);
-            closeModal('modal-booking-form');
+            // Set up Page 3 receipt configuration targets matching parameters inputs
+            document.getElementById("receipt-txt-phone").value = document.getElementById("book-contact").value;
+
+            document.getElementById("checkout-page-2").classList.add("hidden");
+            document.getElementById("checkout-page-3").classList.remove("hidden");
+
+            document.getElementById("checkout-flow-title").innerText = "Step 3: Receipt Distribution Log";
+            document.getElementById("step-dot-2").className = "h-1.5 w-2 rounded-full bg-emerald-500";
+            document.getElementById("step-dot-3").className = "h-1.5 w-6 rounded-full bg-sky-600";
+        }
+
+        function dismissCheckoutTunnelComplete() {
+            // Read target checked parameters states and fire mock alerts streams
+            const willSendEmail = document.getElementById("receipt-chk-email").checked;
+            const willSendSMS = document.getElementById("receipt-chk-phone").checked;
+            
+            let alertMessage = "System Notification:";
+            if(willSendEmail) alertMessage += `\n✉️ Itemized PDF receipt dispatched to: ${document.getElementById("receipt-txt-email").value}`;
+            if(willSendSMS) alertMessage += `\n📱 Instant text confirmation token transmitted to: ${document.getElementById("receipt-txt-phone").value}`;
+            if(!willSendEmail && !willSendSMS) alertMessage += "\nTransaction completed. Paperless receipt archived locally under booking ledger profile references.";
+
+            alert(alertMessage);
+
+            closeModal('modal-checkout-flow');
             closeModal('modal-detail');
             renderCustomerGridFramework();
         }
 
-        // GLOBAL CLOSING ROUTINE IMPLEMENTATION
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add("hidden");
-        }
-
-        function handleOutsideModalClickClose(evt, modalElementId) {
-            if (evt.target === document.getElementById(modalElementId)) {
-                closeModal(modalElementId);
-            }
-        }
+        function closeModal(id) { document.getElementById(id).classList.add("hidden"); }
+        function handleOutsideModalClickClose(e, id) { if(e.target === document.getElementById(id)) closeModal(id); }
 
         // ==========================================
-        // 2. OWNER HUB STATE MANAGEMENT 
+        // 2. OWNER DASHBOARD LEDGER DATA MAPS ENGINE
         // ==========================================
         function initOwnerDashboardLayout() {
-            const sidebarContainer = document.getElementById("owner-sidebar-properties");
-            sidebarContainer.innerHTML = "";
+            const container = document.getElementById("owner-sidebar-properties");
+            container.innerHTML = "";
+            const subset = globalResortsRegistryState.filter((_, i) => i % 6 === 0);
+            document.getElementById("owner-asset-count").innerText = subset.length;
 
-            const ownersSubset = globalResortsRegistryState.filter((_, i) => i % 5 === 0);
-            document.getElementById("owner-asset-count").innerText = ownersSubset.length;
+            if(!localSelectedPropertyId || !subset.some(p => p.id === localSelectedPropertyId)) localSelectedPropertyId = subset[0].id;
 
-            if(ownersSubset.length === 0) return;
-
-            if(!localSelectedPropertyId || !ownersSubset.some(p => p.id === localSelectedPropertyId)) {
-                localSelectedPropertyId = ownersSubset[0].id;
-            }
-
-            ownersSubset.forEach(prop => {
-                const btn = document.createElement("button");
-                const isSelected = prop.id === localSelectedPropertyId;
-                btn.className = `whitespace-nowrap text-left px-3 py-2 text-xs font-bold rounded-lg transition-all border flex-shrink-0 lg:flex-shrink-1 ${isSelected ? 'bg-sky-600 border-sky-500 text-white shadow-sm' : 'border-slate-200 bg-white text-slate-500 hover:bg-slate-50'}`;
-                btn.innerHTML = `
-                    <div class="font-bold truncate max-w-[130px] sm:max-w-none">${prop.name}</div>
-                    <div class="text-[9px] ${isSelected ? 'text-sky-200' : 'text-slate-400'} font-mono">ID: #${prop.id}</div>`;
-                
-                btn.onclick = () => { localSelectedPropertyId = prop.id; initOwnerDashboardLayout(); };
-                sidebarContainer.appendChild(btn);
+            subset.forEach(p => {
+                const isSelected = p.id === localSelectedPropertyId;
+                container.innerHTML += `<button onclick="localSelectedPropertyId=${p.id}; initOwnerDashboardLayout();" class="whitespace-nowrap text-left px-3 py-2 text-xs font-bold rounded-lg border text-slate-500 ${isSelected?'bg-sky-600 text-white':''}"><div class="truncate max-w-[120px]">${p.name}</div><div class="text-[9px] font-mono">ID: #${p.id}</div></button>`;
             });
 
-            const activeAsset = globalResortsRegistryState.find(r => r.id === localSelectedPropertyId);
-            if(!activeAsset) return;
+            const asset = globalResortsRegistryState.find(r => r.id === localSelectedPropertyId);
+            document.getElementById("owner-edit-name").value = asset.name;
+            document.getElementById("owner-edit-price").value = asset.price;
+            document.getElementById("owner-edit-location").value = asset.location;
 
-            document.getElementById("owner-edit-name").value = activeAsset.name;
-            document.getElementById("owner-edit-price").value = activeAsset.price;
-            document.getElementById("owner-edit-location").value = activeAsset.location;
+            // Compute metrics
+            let totalEarnings = 0;
+            asset.bookingsRegistry.forEach(b => totalEarnings += b.revenue);
+            document.getElementById("owner-stat-yield").innerText = `₱${totalEarnings.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+            document.getElementById("owner-stat-count").innerText = asset.bookingsRegistry.length;
+            document.getElementById("owner-stat-rating").innerText = `★ ${asset.rating}`;
 
-            const checkContainer = document.getElementById("owner-amenities-checklist");
-            checkContainer.innerHTML = "";
-            availableAmenities.forEach(am => {
-                const isChecked = activeAsset.amenities.includes(am);
-                const label = document.createElement("label");
-                label.className = "flex items-center space-x-1.5 text-slate-600 hover:text-slate-900 cursor-pointer text-[11px] font-medium";
-                label.innerHTML = `<input type="checkbox" value="${am}" ${isChecked?'checked':''} class="rounded border-slate-300 text-sky-600 focus:ring-sky-500"> <span class="truncate">${am}</span>`;
-                checkContainer.appendChild(label);
+            // Sync Table Content Columns
+            const tbody = document.getElementById("owner-table-bookings");
+            tbody.innerHTML = "";
+            asset.bookingsRegistry.forEach(b => {
+                tbody.innerHTML += `<tr class="border-b text-slate-600 font-medium"><td class="p-3 text-slate-900 font-bold">${b.guest}</td><td class="p-3 font-mono">June ${b.in} - ${b.out}, 2026</td><td class="p-3"><span class="bg-slate-100 text-slate-700 px-2 py-0.5 border rounded text-[10px] font-bold">${b.channel || 'Stripe API'}</span></td><td class="p-3 font-bold text-sky-600">₱${b.revenue.toLocaleString()}</td></tr>`;
             });
 
-            const galleryPreviewNode = document.getElementById("owner-gallery-preview-container");
-            galleryPreviewNode.innerHTML = "";
-            activeAsset.galleryPhotos.forEach((url, pIdx) => {
-                const thumbWrapper = document.createElement("div");
-                thumbWrapper.className = "relative h-10 bg-slate-100 rounded overflow-hidden group border border-slate-200 shadow-sm";
-                thumbWrapper.innerHTML = `
-                    <img src="${url}" class="w-full h-full object-cover">
-                    <button onclick="removePhotoFromProperty(${pIdx})" class="absolute inset-0 bg-red-600/90 text-white font-bold opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-[8px] uppercase tracking-tighter">
-                        Delete
-                    </button>`;
-                galleryPreviewNode.appendChild(thumbWrapper);
+            // Populate property reviews explicitly
+            const revContainer = document.getElementById("owner-property-reviews-container");
+            revContainer.innerHTML = "";
+            asset.reviews.forEach(r => {
+                revContainer.innerHTML += `<div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-[11px]"><div class="flex justify-between font-bold"><span>${r.authorName}</span><span class="text-amber-500">★ ${r.score}</span></div><p class="text-slate-500 mt-0.5">${r.commentBody}</p></div>`;
             });
 
-            // REVIEWS DISPLAY ON OWNER INTERFACE SUMMARY REVIEWS
-            const ownerReviewsContainer = document.getElementById("owner-property-reviews-container");
-            ownerReviewsContainer.innerHTML = "";
-            
-            if (activeAsset.reviews.length === 0) {
-                ownerReviewsContainer.innerHTML = `<div class="text-[11px] text-slate-400 italic">No feedback reviews recorded for this specific stay asset yet.</div>`;
-            } else {
-                activeAsset.reviews.forEach(rev => {
-                    const revBox = document.createElement("div");
-                    revBox.className = "bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-[11px] space-y-1";
-                    revBox.innerHTML = `
-                        <div class="flex justify-between items-center font-medium">
-                            <span class="font-bold text-slate-800">${rev.authorName} <span class="text-slate-400 font-normal">(${rev.dateStamp})</span></span>
-                            <span class="text-amber-500">${"★".repeat(rev.score)}</span>
-                        </div>
-                        <p class="text-slate-500 font-medium">${rev.commentBody}</p>`;
-                    ownerReviewsContainer.appendChild(revBox);
-                });
-            }
-
-            let earningsCounter = 0;
-            activeAsset.bookingsRegistry.forEach(b => earningsCounter += b.revenue);
-            let scoreTrackSum = 0;
-            activeAsset.reviews.forEach(r => scoreTrackSum += r.score);
-            const activeReviewsAvg = (scoreTrackSum / activeAsset.reviews.length || 0.0).toFixed(1);
-
-            document.getElementById("owner-stat-yield").innerText = `₱${earningsCounter.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById("owner-stat-count").innerText = activeAsset.bookingsRegistry.length;
-            document.getElementById("owner-stat-rating").innerText = `★ ${activeReviewsAvg} (${activeAsset.reviews.length} Reviews)`;
-
-            // Assigned Contact staff render layout cards
-            document.getElementById("owner-stakeholder-card").innerHTML = `
-                <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-2">Assigned Staff Profiles</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] font-medium">
-                    <div class="flex items-center space-x-2 bg-slate-50 p-2 rounded-xl border border-slate-200 shadow-sm">
-                        <img src="${activeAsset.ownerAvatar}" class="h-8 w-8 rounded-lg object-cover border border-slate-300">
-                        <div>
-                            <span class="text-slate-400 block uppercase text-[7px] font-bold">Resort Owner</span>
-                            <span class="text-slate-800 font-bold block truncate max-w-[100px]">${activeAsset.ownerName}</span>
-                            <span class="text-slate-500 font-mono text-[9px]">${activeAsset.ownerContact}</span>
-                        </div>
-                    </div>
-                    <div class="flex items-center space-x-2 bg-slate-50 p-2 rounded-xl border border-slate-200 shadow-sm">
-                        <img src="${activeAsset.hostAvatar}" class="h-8 w-8 rounded-lg object-cover border border-slate-300">
-                        <div>
-                            <span class="text-slate-400 block uppercase text-[7px] font-bold">On-Site Host</span>
-                            <span class="text-slate-800 font-bold block truncate max-w-[100px]">${activeAsset.hostName}</span>
-                            <span class="text-slate-500 font-mono text-[9px]">${activeAsset.hostContact}</span>
-                        </div>
-                    </div>
-                </div>`;
-
-            const tableBody = document.getElementById("owner-table-bookings");
-            tableBody.innerHTML = "";
-            activeAsset.bookingsRegistry.forEach(row => {
-                const tr = document.createElement("tr");
-                tr.className = "border-b border-slate-100 hover:bg-slate-50 transition-colors";
-                tr.innerHTML = `
-                    <td class="p-3 text-slate-900 font-bold">${row.guest}</td>
-                    <td class="p-3 font-mono text-slate-400">June ${row.in}, 2026</td>
-                    <td class="p-3 font-mono text-slate-400">June ${row.out}, 2026</td>
-                    <td class="p-3 font-bold text-sky-600">₱${row.revenue.toLocaleString()}</td>`;
-                tableBody.appendChild(tr);
-            });
-        }
-
-        function addPhotoToProperty() {
-            const inputNode = document.getElementById("owner-input-new-photo");
-            const val = inputNode.value.trim();
-            if(!val) return;
-
-            const idx = globalResortsRegistryState.findIndex(r => r.id === localSelectedPropertyId);
-            if(idx !== -1) {
-                globalResortsRegistryState[idx].galleryPhotos.push(val);
-                inputNode.value = "";
-                initOwnerDashboardLayout();
-            }
-        }
-
-        function removePhotoFromProperty(photoIndex) {
-            const idx = globalResortsRegistryState.findIndex(r => r.id === localSelectedPropertyId);
-            if(idx !== -1) {
-                if(globalResortsRegistryState[idx].galleryPhotos.length <= 1) {
-                    alert("A public listing requires keeping at least 1 cover image in its gallery portfolio grid layout.");
-                    return;
-                }
-                globalResortsRegistryState[idx].galleryPhotos.splice(photoIndex, 1);
-                initOwnerDashboardLayout();
-            }
+            document.getElementById("owner-stakeholder-card").innerHTML = `<h3 class="text-xs font-bold text-slate-900 uppercase border-b pb-2">Assigned Staff</h3><div class="text-[11px] space-y-1 font-medium"><div>Owner: <span class="font-bold text-slate-800">${asset.ownerName}</span> (${asset.ownerContact})</div><div>On-Site Caretaker: <span class="font-bold text-slate-800">${asset.hostName}</span> (${asset.hostContact})</div></div>`;
         }
 
         function commitOwnerMutations() {
             const idx = globalResortsRegistryState.findIndex(r => r.id === localSelectedPropertyId);
-            if(idx === -1) return;
-
-            globalResortsRegistryState[idx].name = document.getElementById("owner-edit-name").value.trim();
-            globalResortsRegistryState[idx].price = parseInt(document.getElementById("owner-edit-price").value) || 4500;
+            globalResortsRegistryState[idx].name = document.getElementById("owner-edit-name").value;
+            globalResortsRegistryState[idx].price = parseInt(document.getElementById("owner-edit-price").value);
             globalResortsRegistryState[idx].location = document.getElementById("owner-edit-location").value;
-
-            const boxes = document.querySelectorAll("#owner-amenities-checklist input:checked");
-            let list = [];
-            boxes.forEach(b => list.push(b.value));
-            globalResortsRegistryState[idx].amenities = list;
-
-            alert("Listing profiles parameters changes committed successfully!");
+            alert("Listing configuration changes saved successfully.");
             initOwnerDashboardLayout();
-            renderCustomerGridFramework();
         }
 
-        // PUBLISHING ACTION NEW ADD PROPERTY MANAGER
-        function openAddPropertyModal() {
-            document.getElementById("add-prop-name").value = "";
-            document.getElementById("add-prop-image").value = customStockPhotos[Math.floor(Math.random() * customStockPhotos.length)];
-            document.getElementById("modal-add-property").classList.remove("hidden");
-        }
-
+        function openAddPropertyModal() { document.getElementById("modal-add-property").classList.remove("hidden"); }
         function processAddProperty() {
             const name = document.getElementById("add-prop-name").value.trim();
-            const price = parseInt(document.getElementById("add-prop-price").value) || 5000;
-            const capacity = parseInt(document.getElementById("add-prop-capacity").value) || 4;
-            const loc = document.getElementById("add-prop-location").value;
-            const img = document.getElementById("add-prop-image").value.trim();
-
-            if(!name) { alert("Please provide a valid resort display title text name."); return; }
-
-            const generatedNewId = 1000 + globalResortsRegistryState.length + 1;
-            
-            // Register matching configuration tree context elements mapping object
+            if(!name) return;
             globalResortsRegistryState.push({
-                id: generatedNewId,
-                ownerAccountId: 501, // Map to first owner index portfolio track array node
+                id: 1000 + globalResortsRegistryState.length + 1,
+                ownerAccountId: 501,
                 name: name,
-                location: loc,
-                price: price,
+                location: document.getElementById("add-prop-location").value,
+                price: parseInt(document.getElementById("add-prop-price").value) || 5000,
                 rating: 5.0,
-                capacity: capacity,
-                image: img || customStockPhotos[0],
-                galleryPhotos: [img || customStockPhotos[0]],
-                amenities: ["Infinity Pool", "Air Conditioning", "High-speed Wi-Fi"],
-                ownerName: "Alexander Santos",
-                ownerContact: "+63 917 222 4455",
-                ownerAvatar: stockUsers[1],
-                hostName: "Jenny Dimaculangan",
-                hostContact: "+63 919 444 8899",
-                hostAvatar: stockUsers[2],
-                bookedDays: [],
-                maintenanceDays: [],
-                bookingsRegistry: [],
-                reviews: []
+                capacity: parseInt(document.getElementById("add-prop-capacity").value) || 4,
+                image: customStockPhotos[0],
+                galleryPhotos: [customStockPhotos[0]],
+                amenities: ["Infinity Pool", "High-speed Wi-Fi"],
+                ownerName: "Alexander Santos", ownerContact: "+63 917 555 0192", ownerAvatar: stockUsers[0],
+                hostName: "Jenny Dimaculangan", hostContact: "+63 919 444 8821", hostAvatar: stockUsers[2],
+                bookedDays: [], maintenanceDays: [], bookingsRegistry: [], reviews: []
             });
-
-            alert(`Listing "${name}" successfully compiled and appended to your active management directory index portfolio!`);
-            localSelectedPropertyId = generatedNewId;
             closeModal('modal-add-property');
             initOwnerDashboardLayout();
             renderCustomerGridFramework();
         }
 
         // ==========================================
-        // 3. ADMIN PLATFORM ACCOUNTS DIRECTORY MAP
+        // 3. SUPER ADMIN DIRECTORY MATRIX ENGINE 
         // ==========================================
-        let adminActiveInspectedOwnerAccountId = null;
-
         function renderGlobalAdminDashboardData() {
             let totalVolumeSum = 0;
-            globalResortsRegistryState.forEach(r => {
-                r.bookingsRegistry.forEach(b => totalVolumeSum += b.revenue);
-            });
-            const serviceShareFees = totalVolumeSum * 0.12;
-
+            globalResortsRegistryState.forEach(r => { r.bookingsRegistry.forEach(b => totalVolumeSum += b.revenue); });
+            
             document.getElementById("admin-lbl-volume").innerText = `₱${totalVolumeSum.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-            document.getElementById("admin-lbl-rake").innerText = `₱${serviceShareFees.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+            document.getElementById("admin-lbl-rake").innerText = `₱${(totalVolumeSum * 0.12).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
             document.getElementById("admin-lbl-nodes").innerText = globalResortsRegistryState.length;
 
-            const listContainer = document.getElementById("admin-accounts-directory-list");
-            listContainer.innerHTML = "";
+            const list = document.getElementById("admin-accounts-directory-list");
+            list.innerHTML = "";
+            let processed = [];
 
-            let processedAccountIds = [];
-            let uniqueOwnersList = [];
-
-            globalResortsRegistryState.forEach(resort => {
-                if(!processedAccountIds.includes(resort.ownerAccountId)) {
-                    processedAccountIds.push(resort.ownerAccountId);
-                    uniqueOwnersList.push({
-                        accountId: resort.ownerAccountId,
-                        name: resort.ownerName,
-                        avatar: resort.ownerAvatar
-                    });
+            globalResortsRegistryState.forEach(r => {
+                if(!processed.includes(r.ownerAccountId)) {
+                    processed.push(r.ownerAccountId);
+                    list.innerHTML += `<div onclick="syncAdminInspectPanelDetails(${r.ownerAccountId})" class="p-3 flex items-center justify-between cursor-pointer border-b hover:bg-slate-50 text-xs font-medium"><div class="flex items-center space-x-2"><img src="${r.ownerAvatar}" class="h-6 w-6 rounded object-cover"><div><span class="font-bold text-slate-800 block">${r.ownerName}</span><span class="text-[9px] text-slate-400 font-mono">ID: #${r.ownerAccountId}</span></div></div><span class="text-[9px] text-sky-600 font-bold uppercase">Inspect</span></div>`;
                 }
             });
-
-            uniqueOwnersList.forEach(ownerAcc => {
-                const isInspected = adminActiveInspectedOwnerAccountId === ownerAcc.accountId;
-                const row = document.createElement("div");
-                row.className = `p-3 flex items-center justify-between cursor-pointer transition-all hover:bg-slate-50 ${isInspected ? 'bg-sky-50 border-l-4 border-sky-600' : ''}`;
-                
-                row.innerHTML = `
-                    <div class="flex items-center space-x-2.5 text-xs">
-                        <img src="${ownerAcc.avatar}" class="h-6 w-6 rounded-md object-cover border border-slate-300">
-                        <div>
-                            <span class="font-bold text-slate-800 block">${ownerAcc.name}</span>
-                            <span class="text-[9px] text-slate-400 font-mono">Owner ID: #${ownerAcc.accountId}</span>
-                        </div>
-                    </div>
-                    <span class="text-[9px] font-bold text-sky-600 bg-white px-2 py-0.5 rounded border border-sky-200">Inspect</span>`;
-                
-                row.onclick = () => {
-                    adminActiveInspectedOwnerAccountId = ownerAcc.accountId;
-                    renderGlobalAdminDashboardData(); 
-                };
-                listContainer.appendChild(row);
-            });
-
-            syncAdminInspectPanelDetails();
+            syncAdminInspectPanelDetails(501);
         }
 
-        function syncAdminInspectPanelDetails() {
+        function syncAdminInspectPanelDetails(ownerId) {
+            const subset = globalResortsRegistryState.filter(r => r.ownerAccountId === ownerId);
             const avatarBox = document.getElementById("admin-inspect-avatar-box");
-            const titleNode = document.getElementById("admin-inspect-owner-title");
-            const contactNode = document.getElementById("admin-inspect-owner-contact");
-            const propertiesGrid = document.getElementById("admin-inspect-properties-grid");
+            avatarBox.innerHTML = `<img src="${subset[0].ownerAvatar}" class="w-full h-full object-cover">`;
+            document.getElementById("admin-inspect-owner-title").innerText = subset[0].ownerName;
+            document.getElementById("admin-inspect-owner-contact").innerText = `Primary Line: ${subset[0].ownerContact} | Platform Level: Verified Premium Partner`;
 
-            if(!adminActiveInspectedOwnerAccountId) {
-                avatarBox.innerHTML = ``;
-                titleNode.innerText = "No Target Profile Selected";
-                contactNode.innerText = "Choose an owner partner from the sidebar matrix listing directory list to fetch credentials records portfolio metrics data.";
-                propertiesGrid.innerHTML = `<div class="text-xs text-slate-400 italic p-2 col-span-full">Awaiting account line item selection lookup...</div>`;
-                return;
-            }
-
-            const targetResortRef = globalResortsRegistryState.find(r => r.ownerAccountId === adminActiveInspectedOwnerAccountId);
-            if(!targetResortRef) return;
-
-            avatarBox.innerHTML = `<img src="${targetResortRef.ownerAvatar}" class="w-full h-full object-cover">`;
-            titleNode.innerText = targetResortRef.ownerName;
-            contactNode.innerText = `Contact Line: ${targetResortRef.ownerContact} | Verified Platform Partner Status`;
-
-            const matchingProperties = globalResortsRegistryState.filter(r => r.ownerAccountId === adminActiveInspectedOwnerAccountId);
-            propertiesGrid.innerHTML = "";
-
-            matchingProperties.forEach(prop => {
-                const pCard = document.createElement("div");
-                pCard.className = "bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-2 flex flex-col justify-between text-xs";
-                pCard.innerHTML = `
-                    <div>
-                        <h5 class="font-bold text-slate-900 tracking-tight text-xs line-clamp-1">${prop.name}</h5>
-                        <p class="text-slate-400 font-medium text-[11px]">${prop.location}</p>
-                        <div class="pt-1.5 flex flex-wrap gap-1 text-[9px] text-slate-500 font-bold uppercase">
-                            <span class="bg-white px-1.5 py-0.5 rounded border border-slate-200">Rate: ₱${prop.price}</span>
-                            <span class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-amber-600">★ ${prop.rating}</span>
-                            <span class="bg-white px-1.5 py-0.5 rounded border border-slate-200 text-sky-600">${prop.bookingsRegistry.length} Orders</span>
-                        </div>
-                    </div>
-                    <div class="pt-2 border-t border-slate-200 text-right">
-                        <button onclick="openPropertyDetailModal(${prop.id})" class="text-[9px] bg-white hover:bg-slate-100 border border-slate-300 text-slate-700 font-bold px-2 py-1 rounded transition-all shadow-sm">
-                            Preview Resort Window
-                        </button>
-                    </div>`;
-                propertiesGrid.appendChild(pCard);
+            const grid = document.getElementById("admin-inspect-properties-grid");
+            grid.innerHTML = "";
+            subset.forEach(p => {
+                grid.innerHTML += `<div class="bg-slate-50 p-3 rounded-xl border text-xs flex flex-col justify-between"><div><h5 class="font-bold text-slate-900 truncate">${p.name}</h5><p class="text-slate-400 font-medium text-[11px]">${p.location}</p><div class="pt-1.5 flex flex-wrap gap-1 text-[9px] font-bold uppercase text-slate-500"><span class="bg-white px-1 py-0.5 rounded border">Rate: ₱${p.price}</span><span class="bg-white px-1 py-0.5 rounded border text-sky-600">${p.bookingsRegistry.length} Orders</span></div></div><div class="pt-2 text-right border-t mt-2"><button onclick="openPropertyDetailModal(${p.id})" class="text-[9px] bg-white border font-bold px-2 py-1 rounded transition-all shadow-sm">Preview</button></div></div>`;
             });
         }
 
         function triggerGlobalPriceHike() {
-            globalResortsRegistryState = globalResortsRegistryState.map(item => {
-                return { ...item, price: Math.floor(item.price * 1.10) };
-            });
-            alert("Administrative Pricing Action complete: General +10% rate increase deployed to all listed vacation asset nodes across the system platform.");
+            globalResortsRegistryState.forEach(r => r.price = Math.floor(r.price * 1.10));
+            alert("Administrative Pricing Action executed: +10% rate increase applied to all assets across the catalog directory.");
             renderGlobalAdminDashboardData();
-            renderCustomerGridFramework();
-            initOwnerDashboardLayout();
         }
     </script>
 </body>
